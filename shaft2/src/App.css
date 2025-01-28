@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Wasted-Vindey';
+  src: url('./fonts/Wasted-Vindey.ttf') format('truetype');
+  /* Add additional formats if you have them:
+  src: url('./fonts/your-font-file.woff2') format('woff2'),
+       url('./fonts/your-font-file.woff') format('woff'),
+       url('./fonts/your-font-file.ttf') format('truetype');
+  */
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Wasted-Vindey', sans-serif;
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
@@ -6,12 +22,170 @@ html, body, #root {
 }
 
 .App {
-  height: 100%;
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #352F44;
 }
 
-.full-screen-image {
+.content-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
   width: 100%;
-  height: 100%;
-  object-fit: fill;
-  display: block;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00ff00;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #00ff00, 0 0 40px #00ff00;
+  }
+}
+
+.spinning-logo {
+  animation: spin 4s linear infinite;
+  width: 60vw;  
+  height: 60vw; 
+  max-width: 500px; 
+  max-height: 500px;
+  border-radius: 50%;
+  border: 3px solid #B9B4C7;
+  box-shadow: 0 0 15px rgba(38, 0, 255, 0.5);
+  position: relative;
+  -webkit-mask: radial-gradient(circle at center, transparent 2vw, black 5vw);
+  mask: radial-gradient(circle at center, transparent 2vw, black 5vw);
+}
+
+.cd-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(40vw * 0.28);  
+  height: calc(40vw * 0.28);
+  max-width: 140px;
+  max-height: 140px;
+  border-radius: 50%;
+  border: 3px solid #B9B4C7;
+  box-shadow: 0 0 15px rgba(2, 0, 121, 0.5);
+  background-color: #5C5470;
+  z-index: 1;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.audio-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 3;
+}
+
+.audio-controls button {
+  background: #ff00ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #ff00ff;
+}
+
+.spotify-embed {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #FAF0E6;
+}
+
+.spotify-embed.mobile {
+  bottom: 20px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.spotify-embed.desktop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 3;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #FAF0E6;
+  width: 400px;
+  transform: none;
+  left: auto;
+}
+
+@media (max-width: 768px) {
+  .spotify-embed.desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .spotify-embed.mobile {
+    display: none;
+  }
+}
+
+.visitor-counter {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 0, 255, 0.3);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #fff;
+  z-index: 3;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  color: #FAF0E6;
+  font-size: 24px;
+}
+
+.marquee p {
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
