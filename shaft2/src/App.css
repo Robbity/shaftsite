@@ -29,16 +29,6 @@ html, body, #root {
   transform-style: preserve-3d;
 }
 
-.full-screen-image {
-  width: calc(60vw + 100px);  /* Increased overflow for 3D movement */
-  height: calc(70vh + 100px);
-  object-fit: cover;
-  position: absolute;
-  left: -50px;
-  top: -50px;
-  transform-origin: center;
-}
-
 .title {
   color: white;
   font-size: 4.5rem;
@@ -59,5 +49,27 @@ html, body, #root {
 
 .title-link:hover {
   text-decoration: underline;
-  text-decoration-thickness: 4px;
+  text-decoration-thickness: 2px;
+}
+
+#scene {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+}
+
+.full-screen-image {
+  width: calc(60vw + 100px);
+  height: calc(70vh + 100px);
+  object-fit: cover;
+  position: absolute;
+  left: -50px;
+  top: -50px;
 }
