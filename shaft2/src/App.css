@@ -1,17 +1,145 @@
 html, body, #root {
-  height: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .App {
+  min-height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.image-container {
+  width: 60vw;
+  height: 70vh;
+  margin: 0 auto 2rem;
+  border: 0.5em solid white;
+  border-top-width: 0.3em;
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.title {
+  color: white;
+  font-size: 4.5rem;
+}
+
+.date {
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.title-link {
+  color: white;
+  font-size: 4.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.title-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.links {
+  color: white;
+  font-size: 1.5rem;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.links:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+#scene {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.layer {
+  width: 100%;
   height: 100%;
 }
 
 .full-screen-image {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  display: block;
+  width: calc(60vw + 100px);
+  height: calc(70vh + 100px);
+  object-fit: cover;
+  position: absolute;
+  left: -50px;
+  top: -50px;
+}
+
+/* Mobile shit */
+
+@media screen and (max-width: 768px) {
+  .image-container {
+    width: 85vw;
+    height: 60vh;
+    margin: 1rem auto;
+    border-width: 0.3em;
+  }
+
+  .full-screen-image {
+    width: calc(85vw + 50px);
+    height: calc(60vh + 50px);
+    left: -25px;
+    top: -25px;
+  }
+
+  .title-link {
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .date {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+  }
+
+  .links {
+    font-size: 1.2rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .image-container {
+    width: 90vw;
+    height: 50vh;
+    margin: 0.5rem auto;
+  }
+
+  .title-link {
+    font-size: 2rem;
+  }
+
+  .date {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+
+  .links {
+    font-size: 1rem;
+  }
 }
