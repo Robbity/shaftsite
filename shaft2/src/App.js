@@ -1,6 +1,8 @@
 import './App.css';
 import balderImage from './img/even more fucked.jpg';
 import shaftcity from './img/shaftcitytemp.png';
+import shafttop from './img/shaftcitytop.png';
+import shaftbot from './img/shaftcitybottom.png';
 import { useEffect, useRef } from 'react';
 import Parallax from 'parallax-js';
 
@@ -29,8 +31,15 @@ function App() {
           <div id="scene" ref={sceneRef}>
             <div data-depth="0.5" className="layer">
               <img 
-                src={shaftcity} 
-                alt="Balder" 
+                src={shafttop} 
+                alt="Foreground" 
+                className="full-screen-image"
+              />
+            </div>
+            <div data-depth="0.3" className="layer">
+              <img 
+                src={shaftbot} 
+                alt="Background" 
                 className="full-screen-image"
               />
             </div>
