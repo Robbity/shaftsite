@@ -17,15 +17,26 @@ html, body, #root {
   text-align: center;
 }
 
-.full-screen-image {
+.image-container {
   width: 60vw;
   height: 70vh;
   margin: 0 auto 2rem;
-  display: block;
-  border-style: solid;
-  border-color: white;
-  border-width: 0.5em;
+  border: 0.5em solid white;
   border-top-width: 0.3em;
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.full-screen-image {
+  width: calc(60vw + 100px);  /* Increased overflow for 3D movement */
+  height: calc(70vh + 100px);
+  object-fit: cover;
+  position: absolute;
+  left: -50px;
+  top: -50px;
+  transform-origin: center;
 }
 
 .title {
@@ -34,6 +45,19 @@ html, body, #root {
 }
 
 .date {
-  color:white;
+  color: white;
   font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.title-link {
+  color: white;
+  font-size: 4.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.title-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
 }
