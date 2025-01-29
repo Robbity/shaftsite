@@ -89,39 +89,57 @@ html, body, #root {
 
 /* Mobile shit */
 
-/* Add these media queries for mobile devices */
 @media screen and (max-width: 768px) {
   .image-container {
-    width: 85vw;  /* Make image wider on mobile */
-    height: 60vh; /* Slightly shorter height */
-    margin: 0 auto 1rem; /* Reduce bottom margin */
-    border-width: 0.3em; /* Thinner border */
+    width: 85vw;
+    height: 60vh;
+    margin: 1rem auto;
+    border-width: 0.3em;
   }
 
   .full-screen-image {
-    width: calc(85vw + 50px); /* Adjust overflow */
+    width: calc(85vw + 50px);
     height: calc(60vh + 50px);
     left: -25px;
     top: -25px;
   }
 
   .title-link {
-    font-size: 3rem; /* Smaller font size for title */
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
   }
 
   .date {
-    font-size: 1rem; /* Smaller font size for date */
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    padding: 0 1rem;
+  }
+
+  .links {
+    font-size: 1.2rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
   }
 }
 
-/* Even smaller devices */
 @media screen and (max-width: 480px) {
   .image-container {
     width: 90vw;
-    height: 55vh;
+    height: 50vh;
+    margin: 0.5rem auto;
   }
 
   .title-link {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+
+  .date {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+
+  .links {
+    font-size: 1rem;
   }
 }
