@@ -30,14 +30,36 @@ function App() {
     }
   }, []);
 
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const startTime = Date.now();
+    const duration = 480000; // 480 seconds
+
+    const grow = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      setScale(1 + (progress * 20)); // Increase the multiplier to grow larger
+
+      if (progress < 1) {
+        requestAnimationFrame(grow);
+      }
+    };
+
+    requestAnimationFrame(grow);
+  }, []);
+
   return (
     <div className="App">
       <div className="text-center">
-        <a href="https://linktr.ee/shaft2"
-          className='links'
-          target="_blank">
-          <div className='links'>https://linktr.ee/shaft2</div>
-        </a>
+        <div className="links-container" style={{
+          transform: `scale(${scale})`,
+          transition: 'transform 0.1s linear'
+        }}>
+          <a href="https://linktr.ee/shaft2" className='links'>
+            https://linktr.ee/shaft2
+          </a>
+        </div>
         <div className="image-container">
           <div id="scene" ref={sceneRef}>
             <div data-depth="0.5" className="layer">

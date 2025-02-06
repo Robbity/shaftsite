@@ -52,18 +52,22 @@ html, body, #root {
   text-decoration-thickness: 2px;
 }
 
-.links {
-  color: white;
-  font-size: 1.5rem;
-  width: 100%;
-  padding: 1rem;
-  background-color: black;
+.links-container {
   position: fixed;
   top: 0;
-  left: 0;
-  text-align: center;
-  z-index: 100;
-}
+  left: 50%;
+  transform-origin: top center;
+  z-index: 1000;
+ }
+ 
+ .links {
+  color: white;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  text-decoration: none;
+  transform: translateX(-50%);
+  display: block;
+ }
 
 .links:hover {
   text-decoration: underline;
