@@ -36,7 +36,7 @@ function App() {
         <a href="https://linktr.ee/shaft2"
           className='links'
           target="_blank">
-          <div className='links'>Socials</div>
+          <div className='links'>https://linktr.ee/shaft2</div>
         </a>
         <div className="image-container">
           <div id="scene" ref={sceneRef}>

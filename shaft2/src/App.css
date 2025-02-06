@@ -55,9 +55,14 @@ html, body, #root {
 .links {
   color: white;
   font-size: 1.5rem;
-  text-align: left;
-  text-decoration: none;
-  cursor: pointer;
+  width: 100%;
+  padding: 1rem;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  z-index: 100;
 }
 
 .links:hover {
@@ -116,10 +121,9 @@ html, body, #root {
   }
 
   .links {
+    position: fixed;
     font-size: 1.2rem;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+    padding: 0.5rem;
   }
 }
 
