@@ -52,13 +52,22 @@ html, body, #root {
   text-decoration-thickness: 2px;
 }
 
-.links {
+.links-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform-origin: top center;
+  z-index: 1000;
+ }
+ 
+ .links {
   color: white;
   font-size: 1.5rem;
-  text-align: left;
+  white-space: nowrap;
   text-decoration: none;
-  cursor: pointer;
-}
+  transform: translateX(-50%);
+  display: block;
+ }
 
 .links:hover {
   text-decoration: underline;
@@ -116,10 +125,9 @@ html, body, #root {
   }
 
   .links {
+    position: fixed;
     font-size: 1.2rem;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+    padding: 0.5rem;
   }
 }
 
