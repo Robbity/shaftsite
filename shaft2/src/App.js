@@ -1,8 +1,15 @@
 import './App.css';
-import balderImage from './img/even more fucked.jpg';
-import shaftcity from './img/shaftcitytemp.png';
-import shafttop from './img/shaftcitytop.png';
-import shaftbot from './img/shaftcitybottom.png';
+// import balderImage from './img/even more fucked.jpg';
+// import shaftcity from './img/shaftcitytemp.png';
+// import shafttop from './img/shaftcitytop.png';
+// import shaftbot from './img/shaftcitybottom.png';
+
+import shaftForeground from './img/shaftcity/shaftcity-foreground.png';
+import shaftForemiddle from './img/shaftcity/shaftcity-foremiddle.png';
+import shaftBackmiddle from './img/shaftcity/shaftcity-backmiddle.png';
+import shaftBack from './img/shaftcity/shaftcity-back.png';
+import shaftEnd from './img/shaftcity/shaftcity-end.png';
+
 import { useEffect, useRef, useState } from 'react';
 import Parallax from 'parallax-js';
 
@@ -62,17 +69,42 @@ function App() {
         </div>
         <div className="image-container">
           <div id="scene" ref={sceneRef}>
-            <div data-depth="0.5" className="layer">
+            {/* End - moves the least */}
+            <div data-depth="0.2" className="layer">
               <img
-                src={shafttop}
-                alt="Foreground"
+                src={shaftEnd}
+                alt="End"
                 className="full-screen-image"
               />
             </div>
-            <div data-depth="0.3" className="layer">
+            {/* Back */}
+            <div data-depth="0.4" className="layer">
               <img
-                src={shaftbot}
-                alt="Background"
+                src={shaftBack}
+                alt="Back"
+                className="full-screen-image"
+              />
+            </div>
+            {/* Backmiddle */}
+            <div data-depth="0.6" className="layer">
+              <img
+                src={shaftBackmiddle}
+                alt="Backmiddle"
+                className="full-screen-image"
+              />
+            </div>
+            {/* Foremiddle */}
+            <div data-depth="0.8" className="layer">
+              <img
+                src={shaftForemiddle}
+                alt="Foremiddle"
+                className="full-screen-image"
+              />
+            </div>
+            <div data-depth="1.0" className="layer">
+              <img
+                src={shaftForeground}
+                alt="Foreground"
                 className="full-screen-image"
               />
             </div>
