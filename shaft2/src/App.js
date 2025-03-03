@@ -12,6 +12,7 @@ import shaftEnd from './img/shaftcity/shaftcity-end.png';
 
 import { useEffect, useRef, useState } from 'react';
 import Parallax from 'parallax-js';
+import { Link } from 'react-router-dom';
 
 function App() {
   const sceneRef = useRef(null);
@@ -22,21 +23,7 @@ function App() {
   const [randomText] = useState(() =>
     descriptions[Math.floor(Math.random() * descriptions.length)]
   );
-
-  useEffect(() => {
-    const scene = sceneRef.current;
-    if (scene) {
-      const parallaxInstance = new Parallax(scene, {
-        relativeInput: true,
-        clipRelativeInput: false,
-        hoverOnly: false,
-        scalar: 15
-      });
-
-      return () => parallaxInstance.destroy();
-    }
-  }, []);
-
+  
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
@@ -54,6 +41,20 @@ function App() {
     };
 
     requestAnimationFrame(grow);
+  }, []);
+
+  useEffect(() => {
+    const scene = sceneRef.current;
+    if (scene) {
+      const parallaxInstance = new Parallax(scene, {
+        relativeInput: true,
+        clipRelativeInput: false,
+        hoverOnly: false,
+        scalar: 15
+      });
+
+      return () => parallaxInstance.destroy();
+    }
   }, []);
 
   return (
@@ -116,6 +117,21 @@ function App() {
           SHAFT CITY
         </a>
         <div className='date'>{randomText}</div>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '10px' }}>
+          <a href="https://tilt.fyi/xlPxCkebRd" 
+            className='date'
+            style={{ textDecoration: 'underline' }}
+            target="_blank" 
+            rel="noopener noreferrer">
+            FUNDRAISER
+          </a>
+          <Link to="/concert" 
+            className='date'
+            style={{ textDecoration: 'underline' }}
+            rel="noopener noreferrer">
+            CONCERT MARCH 15
+          </Link>
+        </div>
       </div>
     </div>
   );
